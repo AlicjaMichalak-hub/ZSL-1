@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="pl" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Zmienne</title>
-  </head>
-  <body>
-    <?php
+  
+<head>
+   <meta charset="utf-8">
+   <title>Zmienne</title>
+</head>
+<body>
+  <?php
     $name = "Anna";
     echo 'imie: $name<br>'; //'' nie uznaje zmiennych
     // konkatenacja .
@@ -21,18 +22,17 @@
     echo $fałsz; //brak wyświetlenia
 
     //integer
-     $calkowita = 10; //10
-     $hex = 0xB; //11
-     $oct = 010; //8
-     $bin = 0b1011; //11
+    $calkowita = 10; //10
+    $hex = 0xB; //11
+    $oct = 010; //8
+    $bin = 0b1011; //11
+    echo "<hr>"."$bin";
 
-     echo "<hr>"."$bin";
-
-     // składnia heredoc
-     $name = 'Janusz';
-     $text =<<< ETYKIETA
-     <hr>Imie w heredoc: $name<br>
-     Druga linia heredoc<hr>
+    // składnia heredoc
+    $name = 'Janusz';
+    $text =<<< ETYKIETA
+    <hr>Imie w heredoc: $name<br>
+    Druga linia heredoc<hr>
 ETYKIETA;
 
     echo $text;
@@ -48,6 +48,6 @@ E;
 E;
 
     echo "Nazwa zmiennej \$city, wartość $city"
-    ?>
+  ?>
   </body>
 </html>
