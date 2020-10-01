@@ -1,0 +1,16 @@
+CREATE DATABASE `znajomi2013`;
+
+USE `znajomi2013`;
+CREATE TABLE `Osoby` (`Id_osoba` char(4) PRIMARY KEY, `Imie` varchar(30) NOT null, `Nazwisko` varchar(30) not null);
+CREATE TABLE `Hobby` (`Id_hobby` char(4) PRIMARY KEY, `Hobby` varchar(30) not null);
+CREATE TABLE `Ma_hobby` (`Id` INT PRIMARY KEY AUTO_INCREMENT, `Id_osoba` char(4) NOT null, `Id_hobby` char(4) not null);
+
+LOAD DATA INFILE 'C:\\Users\\User\\Desktop\\matura_2013\\Dane\\Osoby.txt' INTO TABLE `osoby` FIELDS TERMINATED BY ' ' LINES TERMINATED BY '\r\n';
+
+LOAD DATA INFILE 'C:\\Users\\User\\Desktop\\matura_2013\\Dane\\Hobby.txt' INTO TABLE `hobby` FIELDS TERMINATED BY ' ' LINES TERMINATED BY '\r\n';
+
+LOAD DATA INFILE 'C:\\Users\\User\\Desktop\\matura_2013\\Dane\\Ma_Hobby.txt' INTO TABLE `ma_hobby` FIELDS TERMINATED BY ' ' LINES TERMINATED BY '\r\n';
+
+ALTER TABLE `ma_hobby` add FOREIGN KEY (`Id_osoba`) REFERENCES `osoby` (`Id_osoba`);
+
+ALTER TABLE `ma_hobby` add FOREIGN KEY (`Id_hobby`) REFERENCES `hobby` (`Id_hobby`);
