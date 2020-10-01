@@ -45,9 +45,25 @@
   /*
       preinkrementacja ++$i //zwiększa się w tej samej instrukcji
       predekrementacja --$i
-      postinkrementacja $i++  //zwiększa się w kolejnej instrukcji
+      postinkrementacja $i++  //zwiększa się w kolejnym dziaaniu
       postdekrementacja $i--
   */
+/*
+b = x++
+b = x
+x++;
+
+b = ++x
+x++
+b = x
+*/
+
+    $z = 3;
+    echo "<hr>".$z."<br>";
+    $z = $z++;
+    echo $z."<br>";
+    $z = ++$z;
+    echo $z."<hr>";
     $x=5;
     $x=$x++;
     echo $x,"<br>"; //5

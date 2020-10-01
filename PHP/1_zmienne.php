@@ -7,9 +7,9 @@
   <body>
     <?php
     $name = "Anna";
-    echo 'imie: $name<br>'; //'' nie uznaje zmiennych
+    echo 'imie: $name<br>';
     // konkatenacja .
-    echo "imie: $name"."<hr>";
+    echo "imie: $name"."<hr>"; //rozpoznaje zmienne
 
 
     // typy danych
@@ -32,12 +32,14 @@
      $name = 'Janusz';
      $text =<<< ETYKIETA
      <hr>Imie w heredoc: $name<br>
-     Druga linia heredoc<hr>
+     Druga linia heredoc<br>
+     wyswietlanie poprzez przypisanie do zmiennej i wyswietlenie jej<hr>
 ETYKIETA;
-
     echo $text;
+
     echo <<< E
-    heredoc v2<hr>
+    heredoc v2<br>
+    wyswietlanie bezposrednie poprzez echo<hr>
 E;
 
     // składnia nowdoc
@@ -47,7 +49,10 @@ E;
     Miasto: $city<hr>
 E;
 
-    echo "Nazwa zmiennej \$city, wartość $city"
+    echo "Nazwa zmiennej \$city, wartość $city <hr>";
+    $number = "321";
+    $number = (double)$number;
+    echo gettype($number);
     ?>
   </body>
 </html>
