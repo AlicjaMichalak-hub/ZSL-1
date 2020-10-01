@@ -1,40 +1,55 @@
 <?php
-    $text = <<< LABEL
-    zsl - Zespol
-    Szkol
-    Lacznosci<br>
+  $text = <<< LABEL
+    zsl - Zespół
+    Szkół
+    Łączności<br>
 LABEL;
-echo $text;
-echo nl2br($text);
 
- $name = 'jaNUsZ';
- echo strtolower($name); //janusz
- echo strtoupper($name);
+  echo $text;
+  echo nl2br($text);
 
- $text = 'janusz nowak Mieszka w poznaniu';
- echo ucfirst($text);
+  $name = 'jaNUsZ';
+// zamiana na małe litery
+  // $name = strtolower($name); //janusz
+  echo strtolower($name); //janusz
 
- echo ucwords($text)."<hr>";
+// zamiana na duże litery
+  echo strtoupper($name); //JANUSZ
 
- $lorem = <<< LOREM
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin auctor lectus magna, vitae fringilla tellus volutpat in. Sed sed justo mollis, auctor diam quis, laoreet mi. Proin eget risus blandit, ornare mi eget, hendrerit erat. Vivamus egestas finibus ipsum eget venenatis. Pellentesque ornare augue in sagittis congue. Nam feugiat bibendum tortor, id placerat ligula ullamcorper non. In non lacinia felis. Vestibulum eu lectus vitae nisl congue tincidunt a sed lectus. Donec commodo, urna non gravida eleifend, ante magna porta metus, ac tincidunt lacus mauris venenatis ante. Donec fringilla ante enim, a dictum ipsum hendrerit id.<hr>
+// zamiana pierwszej litery w zdaniu
+  $text = 'janusz nowak Mieszka w poznaniu';
+  echo ucfirst($text); //Janusz nowak Mieszka w poznaniu
+
+// zamiana wszystkich pierwszych liter w zdaniu
+  $text = 'janusz nowak Mieszka w poznaniu';
+  echo ucwords($text); //Janusz Nowak Mieszka W Poznaniu
+
+// Lorem Ipsum
+  $lorem = <<< LOREM
+    <br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis qui beatae unde, magnam at fuga magni delectus quo obcaecati animi mollitia modi veritatis quaerat expedita voluptas nulla, sint cum eum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis qui beatae unde, magnam at fuga magni delectus quo obcaecati animi mollitia modi veritatis quaerat expedita voluptas nulla, sint cum eum.<hr>
 LOREM;
-echo $lorem;
-$col = wordwrap($lorem,30,'<br>');
-echo $col;
-$col = wordwrap($lorem,40,'<hr>');
-echo $col;
-ob_clean();
 
-$name = 'Anna';
-$name1= '   Anna ';
+  echo $lorem;
+  $col = wordwrap($lorem, 40, '<br>');
+  echo $col;
+  $col = wordwrap($lorem, 40, '<hr>');
+  echo $col;
 
-echo 'Dlugosc $name',strlen($name);
-echo 'Dlugosc $name1',strlen($name1);
-echo strlen(ltrim($name1));
-echo strlen(rtrim($name1));
-echo strlen(trim($name1));
-$name1 = trim($name1);
-echo strlen($name1);
+// czyszczenie zawartości bufora
+  ob_clean();
+
+// czyszczenie białych znaków
+  $name = 'Anna';
+  $name1 = '  Anna ';
+
+  echo 'Dłogość $name: ',strlen($name); //4
+  echo '<br>Dłogość $name1: ',strlen($name1);//7
+
+  echo strlen(ltrim($name1)); //5
+  echo strlen(rtrim($name1)); //6
+  echo strlen(trim($name1)); //4
+
+  $name1 = trim($name1);
+  echo strlen($name1); //4
 
 ?>
