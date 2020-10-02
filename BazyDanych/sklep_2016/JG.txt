@@ -1,0 +1,28 @@
+kartkówka - matura 2016
+
+CREATE DATABASE `sklep2016`;
+
+use `sklep2016`;
+CREATE TABLE `produkty`(
+`Id_produktu` int PRIMARY KEY AUTO_INCREMENT,
+`Nazwa_prduktu` varchar(30) NOT null,
+`Grupa_towarowa` varchar(30) not null,
+`Producent` varchar(30) NOT null,
+`Cena_brutto` float not null);
+
+CREATE TABLE `klienci` (
+`Id_klienta` char(5) PRIMARY KEY,
+`imie` varchar(30) not null,
+`nazwisko` varchar(30) not null);
+
+CREATE TABLE `zamowienia` (
+`ID_zamowienia` char(6) PRIMARY KEY,
+`Data` date NOT null,
+`ID_produktu` int not null,
+`ID_klienta` char(5) not null,
+`Liczba_sztuk` int not null);
+
+ALTER TABLE `zamowienia` ADD (
+FOREIGN KEY (`ID_produktu`) REFERENCES `produkty` (`Id_produktu`), FOREIGN KEY (`ID_klienta`) REFERENCES `klienci` (`Id_klienta`));
+
+LOAD DATA INFILE 'C:\\Users\\user\\Desktop\\INFORMATYKA DANE Maj 2016 poziom podstawowy\\klienci.txt' INTO TABLE `klienci` FIELDS TERMINATED by '\t' LINES TERMINATED by '\r\n' IGNORE 1 LINES;
