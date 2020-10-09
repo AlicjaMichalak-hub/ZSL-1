@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body style="background: cyan">
+	<canvas id="n1" width="600" height="300"></canvas><br>
+	<button type="button" onclick="polska()">polska</button>
+	<button type="button" onclick="japonia()">japonia</button>
+	<button type="button" onclick="czechy()">czechy</button>
+	<button type="button" onclick="szwecja()">szwecja</button>
+	<button type="button" onclick="finlandia()">finlandia</button>
+	<button type="button" onclick="hiszpania()">hiszpania</button>
+	<button type="button" onclick="norwegia()">norwegia</button>
+	<button type="button" onclick="czyść()">czyść</button>
+	<script>
+		var canvas = document.getElementById('n1');
+		var ctx = canvas.getContext('2d');
+		var sizex = canvas.width;
+		var sizey = canvas.height;
+
+		function polska() {
+			dlugoscX = sizex;
+			dlugoscY = sizey;
+			ctx.beginPath();
+			ctx.fillStyle = "white";
+			ctx.fillRect(0,0,dlugoscX,dlugoscY/2);
+			ctx.fillStyle= "red";
+			ctx.fillRect(0,dlugoscY/2,dlugoscX,dlugoscY/2);
+			};
+		function japonia() {
+			dlugoscX = sizex;
+			dlugoscY = sizey;
+			ctx.fillStyle = "white";
+			ctx.fillRect(0,0,dlugoscX,dlugoscY);
+
+			    ctx.beginPath();
+    			ctx.arc(dlugoscX/2,dlugoscY/2,sizey/4,0,Math.PI*2,true);
+    			ctx.fillStyle = 'red';
+    			ctx.fill()
+		}
+		function czechy(){
+			dlugoscX = sizex;
+			dlugoscY = sizey;
+			ctx.beginPath();
+			ctx.fillStyle = "white";
+			ctx.fillRect(0,0,dlugoscX,dlugoscY/2);
+			ctx.fillStyle= "red";
+			ctx.fillRect(0,dlugoscY/2,dlugoscX,dlugoscY/2);
+			ctx.moveTo(0,0);
+			ctx.lineTo(dlugoscX/3,dlugoscY/2);
+			ctx.lineTo(0,dlugoscY);
+			ctx.fillStyle="blue";
+			ctx.fill();
+		}
+		function szwecja()
+		{
+			dlugoscX = sizex;
+			dlugoscY = sizey;
+			ctx.fillStyle = "Blue";
+			ctx.fillRect(0,0,dlugoscX,dlugoscY);
+			ctx.fillStyle = "yellow";
+			ctx.fillRect((dlugoscX/6),0,dlugoscX/6-16,dlugoscY)
+			ctx.fillRect(0,dlugoscY/3+4,dlugoscX,dlugoscY/3-20)
+		}
+		function finlandia()
+		{
+			dlugoscX = sizex;
+			dlugoscY = sizey;
+			ctx.fillStyle = "white";
+			ctx.fillRect(0,0,dlugoscX,dlugoscY);
+			ctx.fillStyle = "navy";
+			ctx.fillRect((dlugoscX/6),0,dlugoscX/6-16,dlugoscY)
+			ctx.fillRect(0,dlugoscY/3+4,dlugoscX,dlugoscY/3-20)
+		}
+		function hiszpania()
+		{
+			dlugoscX = sizex;
+			dlugoscY = sizey;
+			var obrazek = new Image()
+			obrazek.src = "herb.png"
+			var obrX = obrazek.width;
+			var obrY = obrazek.height;
+			if(obrazek.complete)
+			{
+				ctx.fillStyle = "red";
+				ctx.fillRect(0,0,dlugoscX,dlugoscY);
+				ctx.fillStyle = "orange";
+				ctx.fillRect(0,dlugoscY/4,dlugoscX,(dlugoscY/4)*2);
+				ctx.drawImage(obrazek,0,0,obrX,obrY,dlugoscX/4-20,dlugoscY/3-10,120,120);
+			}
+			else
+			{
+				obrazek.addEventListener('load',hiszpania);
+			}
+		}
+		function norwegia()
+		{
+			dlugoscX = sizex;
+			dlugoscY = sizey;
+			ctx.fillStyle = "red";
+			ctx.fillRect(0,0,dlugoscX,dlugoscY);
+			ctx.fillStyle = "white";
+			ctx.fillRect((dlugoscX/6),0,dlugoscX/6-16,dlugoscY)
+			ctx.fillRect(0,dlugoscY/3+4,dlugoscX,dlugoscY/3-20)
+			ctx.fillStyle = "navy";
+			ctx.fillRect(dlugoscX/5-6,0,dlugoscX/8-16,dlugoscY)
+			ctx.fillRect(0,dlugoscY/2-33,dlugoscX,dlugoscY/4-20)
+
+		}
+		function czyść()
+		{
+			ctx.clearRect(0,0,sizex,sizey);
+		}
+	</script>
+</body>
+</html>
